@@ -1,0 +1,28 @@
+3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       
+5201903010000013200556418150633123****7687145607MARIA JOSEFINALOJA DO Ó - MATRIZ
+3201903010000012200845152540736777****1313172712MARCOS PEREIRAMERCADO DA AVENIDA
+2201903010000011200096206760173648****0099234234JOÃO MACEDO   BAR DO JOÃO       
+1201903010000015200096206760171234****7890233000JOÃO MACEDO   BAR DO JOÃO       
+2201903010000010700845152540738723****9987123333MARCOS PEREIRAMERCADO DA AVENIDA
+
+======================================================================================================================
+
+3 (tipo) | 20190301 (data) | 0000014200 (valor) | 09620676017 (cpf) | 4753****3153 (cartão) | 153453 (hora) | JOÃO MACEDO    (representante) | BAR DO JOÃO         (loja)
+
+tipo de transação | data | valor (valor/100) | cpf beneficiário | cartão | hora (UTC-3) | representante | loja
+1 dígito          | 8 dí.| 10 dígitos        | 11 dígitos       | 12 díg.| 6 dígitos    | 14 dígitos    | 19 dígitos
+
+======================================================================================================================
+
+transação:
+
+tipo | descrição               | natureza | sinal
+1     débito                    entrada    +
+2     boleto                    saída      -
+3     financiamento             saída      -
+4     crédito                   entrada    +
+5     recebimento empréstimo    entrada    +
+6     vendas                    entrada    +
+7     recebimento ted           entrada    +
+8     recebimento doc           entrada    +
+9     aluguel                   saída      -
