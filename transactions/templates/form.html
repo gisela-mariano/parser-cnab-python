@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <aside>
+      <h1>Formulário</h1>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="cont-input">
+          <label for="input-file">Selecione seu arquivo:</label>
+          <input type="file" name="doc" accept=".txt" id="input-file" />
+          <br />
+          <br />
+        </div>
+        <br />
+        <br />
+        <button type="submit">Enviar</button>
+      </form>
+    </aside>
+
+    <main>
+      <!-- {
+        for row in {json_file}:
+        print(row)
+      } -->
+      {% for item in transactions %}
+
+      <div>
+        <span>Tipo {{item.type}}</span>
+        <span>Data {{item.date}}</span>
+        <span>Hora {{item.hour}}</span>
+        <span>Valor {{item.value}}</span>
+        <span>CPF {{item.cpf}}</span>
+        <span>Cartão {{item.card}}</span>
+        <span>Representante da Loja {{item.store_owner}}</span>
+        <span>Loja {{item.store_name}}</span>
+      </div>
+
+      {% endfor %}
+
+      <div>
+        <span>Saldo Final:</span>
+        <br />
+        <span>{{total_value}}</span>
+      </div>
+    </main>
+  </body>
+</html>
