@@ -1,52 +1,110 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href={% static "css/style.css" %} />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Transactions CNAB</title>
+
+    <!-- {% block css %} {% endblock css %} -->
   </head>
   <body>
-    <aside>
-      <h1>Formulário</h1>
-      <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="cont-input">
-          <label for="input-file">Selecione seu arquivo:</label>
-          <input type="file" name="doc" accept=".txt" id="input-file" />
-          <br />
-          <br />
+    <header>
+      <h1>Leitor de CNAB</h1>
+    </header>
+
+    <section>
+      <div class="cont-section">
+        <h2>Como Funciona:</h2>
+        <p>
+          Você irá enviar o seu arquivo com os dados do CNAB, assim ele será
+          interpretado e trará os valores.
+        </p>
+        <h3>Exemplo de como deve ser um código CNAB:</h3>
+        <code>
+          <span class="type">3</span><span class="date">20190301</span
+          ><span class="value">0000014200</span
+          ><span class="cpf">09620676017</span
+          ><span class="card">4753****3153</span><span class="hour">153453</span
+          ><span class="owner">JOÃO MACEDO____</span
+          ><span class="store">LOJA DO JOÃO_______</span>
+        </code>
+
+        <div class="cont-infos-size">
+          <span>Tamanhos:</span>
+
+          <div class="sizes">
+            <div class="cont-sizes">
+              <span class="type">Tipo: 1</span>
+              <span class="date">Data: 8</span>
+              <span class="value">Valor: 10</span>
+              <span class="cpf">CPF: 11</span>
+            </div>
+
+            <div class="cont-sizes">
+              <span class="card">Cartão: 12</span>
+              <span class="hour">Hora: 6</span>
+              <span class="owner">Representante do Estabelecimento: 14</span>
+              <span class="store">Estabelecimento: 19</span>
+            </div>
+          </div>
         </div>
-        <br />
-        <br />
-        <button type="submit">Enviar</button>
-      </form>
-    </aside>
+        <p>
+          Lembrando que a quantidade de dígitos é
+          <strong>muito importante</strong>. Sendo assim, considere os underline
+          (&quot; &lowbar; &quot;) do representante e do estabelecimento como
+          espaços.
+        </p>
+      </div>
+    </section>
 
     <main>
-      <!-- {
-        for row in {json_file}:
-        print(row)
-      } -->
-      {% for item in transactions %}
+      <aside>
+        <h3>Envie seu arquivo:</h3>
 
-      <div>
-        <span>Tipo {{item.type}}</span>
-        <span>Data {{item.date}}</span>
-        <span>Hora {{item.hour}}</span>
-        <span>Valor {{item.value}}</span>
-        <span>CPF {{item.cpf}}</span>
-        <span>Cartão {{item.card}}</span>
-        <span>Representante da Loja {{item.store_owner}}</span>
-        <span>Loja {{item.store_name}}</span>
-      </div>
+        <span class="error" style="color: red;">{{ errors.not_found }}</span>
+        <span class="error" style="color: red;">{{ errors.invalid_format }}</span>
 
-      {% endfor %}
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
 
-      <div>
-        <span>Saldo Final:</span>
-        <br />
-        <span>{{total_value}}</span>
+          <div class="cont-input">
+            <label for="input-file">Selecione seu arquivo:</label>
+            <input type="file" name="doc" accept=".txt" id="input-file" />
+          </div>
+
+          <button type="submit">Enviar</button>
+        </form>
+      </aside>
+
+      <div class="cont-result">
+        <h2>Resultado</h2>
+
+        <div class="cont-cards">
+          {% for item in transactions %}
+
+          <div class="card">
+            <span>Tipo: {{item.type}}</span>
+            <span>Data (YYYYMMDD): {{item.date}}</span>
+            <span>Hora (UTC): {{item.hour}}</span>
+            <span>Valor: {{item.value}}</span>
+            <span>CPF: {{item.cpf}}</span>
+            <span>Cartão: {{item.card}}</span>
+            <span>Representante do Estabelecimento: {{item.store_owner}}</span>
+            <span>Estabelecimento: {{item.store_name}}</span>
+          </div>
+
+          {% endfor %}
+        </div>
+
+        <div class="total">
+          <span>Saldo Final:</span>
+          <span>{{total_value}}</span>
+        </div>
       </div>
     </main>
   </body>

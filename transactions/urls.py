@@ -9,10 +9,7 @@ router = routers.DefaultRouter()
 # router.register(r"transactions", views.TransactionCreateListView, basename="upload")
 
 urlpatterns = [
-    path("form/", views.Teste, name="form"),
-    # path("", include(router.urls), name="upload"),
-    # path(r"transactions", views.TransactionCreateListView.as_view({'get': 'list', 'post': 'create'}), name="upload"),
-    path("transactions/<str:id_transaction>/", views.TransactionDetailView.as_view()),
+    path("transactions/", views.CreateListTransactions, name="transactions"),
 ]
 
 if settings.DEBUG:
