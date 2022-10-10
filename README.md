@@ -55,8 +55,9 @@ python manage.py transactions.tests
 
 ## 4. Como utilizar a aplicação
 
-1. Na aba de “Envie seu arquivo” selecione o arquivo de texto (.txt) desejado para que possa ser interpretado
-2. Após realizar o envio o resultado das transações aparecerá na aba “Resultados” juntamente com o saldo final
+1. No seu navegador vá para a rota `localhost:8000/api/transactions/`
+2. Na aba de “Envie seu arquivo” selecione o arquivo de texto (.txt) desejado para que possa ser interpretado
+3. Após realizar o envio o resultado das transações aparecerá na aba “Resultados” juntamente com o saldo final
 
 ---
 
