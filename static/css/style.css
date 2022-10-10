@@ -28,6 +28,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 
+  font-family: sans-serif;
+
   cursor: default;
 
   background-color: var(--background);
@@ -97,7 +99,7 @@ input{
 }
 
 .error{
-  color: red;
+  color: #b3424b;
 }
 
 button{
@@ -117,9 +119,9 @@ header{
 
   background-color: var(--blue-jeans);
 
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
 }
 
 header h1{
@@ -175,7 +177,7 @@ section div.cont-section div.cont-infos-size{
   justify-content: space-between;
 }
 
-section div.cont-section div.cont-infos-size span:first-child{
+section div.cont-section div.cont-infos-size span.size{
   font-weight: bold;
 }
 
@@ -232,13 +234,10 @@ main aside{
 main aside h3{
   font-size: 1.5rem;
   font-weight: bold;
-
-  /* color: var(--dark-graphite); */
-  /* color: white; */
 }
 
 main aside span.error{
-  color: red;
+  text-align: center;
 }
 
 /* ========================= FORM ========================= */
@@ -281,9 +280,7 @@ main div.cont-result{
   padding: 15px;
 
   background-color: var(--blue-jeans);
-  /* background-color: var(--graphite); */
 
-  /* border: 1px solid var(--dark-graphite); */
   border-radius: 15px;
 
   display: flex;
@@ -328,7 +325,6 @@ main div.cont-cards div.card{
   margin-bottom: 15px;
 
   background-color: var(--kinda-white);
-  /* background-color: var(--blue-jeans); */
   color: var(--dark-graphite);
 
   border-radius: 15px;

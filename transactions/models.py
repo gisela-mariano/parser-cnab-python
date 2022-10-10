@@ -15,9 +15,9 @@ class Transaction(models.Model):
     store_name = models.CharField(max_length=19, validators=[MinLengthValidator(19)])
 
 
-class File(models.Model):
-    id = models.BigIntegerField(primary_key=True)
-    file = models.FileField(blank=False, null=False)
+# class File(models.Model):
+#     id = models.BigIntegerField(primary_key=True)
+#     file = models.FileField(blank=False, null=False)
     
-    def __str__(self):
-        return self.file.name
+#     def __str__(self):
+#         return self.file.name

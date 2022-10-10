@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href={% static "css/style.css" %} />
-    <!-- <link rel="stylesheet" href="style.css" /> -->
     <title>Transactions CNAB</title>
 
     <!-- {% block css %} {% endblock css %} -->
@@ -35,7 +34,7 @@
         </code>
 
         <div class="cont-infos-size">
-          <span>Tamanhos:</span>
+          <span class="size">Tamanhos:</span>
 
           <div class="sizes">
             <div class="cont-sizes">
@@ -66,8 +65,8 @@
       <aside>
         <h3>Envie seu arquivo:</h3>
 
-        <span class="error" style="color: red;">{{ errors.not_found }}</span>
-        <span class="error" style="color: red;">{{ errors.invalid_format }}</span>
+        <span class="error">{{ errors.not_found }}</span>
+        <span class="error">{{ errors.invalid_format }}</span>
 
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}

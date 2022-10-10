@@ -8,9 +8,3 @@ class TransactionSerializer(serializers.ModelSerializer):
         model = Transaction
         fields = "__all__"
         extra_kwargs = {"id": {"read_only": True}}
-
-
-# class FileSerializer(serializers.Serializer):
-#     file_uploaded = serializers.FileField()
-#     class Meta:
-#         fields = ['file_uploaded']
