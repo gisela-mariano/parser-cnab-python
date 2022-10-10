@@ -13,11 +13,3 @@ class Transaction(models.Model):
     card = models.CharField(max_length=12, validators=[MinLengthValidator(12)])
     store_owner = models.CharField(max_length=14, validators=[MinLengthValidator(14)])
     store_name = models.CharField(max_length=19, validators=[MinLengthValidator(19)])
-
-
-# class File(models.Model):
-#     id = models.BigIntegerField(primary_key=True)
-#     file = models.FileField(blank=False, null=False)
-    
-#     def __str__(self):
-#         return self.file.name
